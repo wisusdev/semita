@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+{{template "header" .}}
+<body>
+    {{template "navbar" .}}
+
+    <div class="container">
+        <h1>{{call .Translate "params"}}</h1>
+        <p>{{call .Translate "welcome_params"}}</p>
+        <p>{{call .Translate "example_params"}}</p>
+        <p>{{call .Translate "thanks"}}</p>
+        <ul>
+            <li>{{call .Translate "id"}}: {{.Data.id}}</li>
+            <li>{{call .Translate "slug"}}: {{.Data.slug}}</li>
+            <li>{{call .Translate "text"}}: {{.Data.text}}</li>
+        </ul>
+    </div>
+
+    {{template "footer" .}}
+</body>
+</html>

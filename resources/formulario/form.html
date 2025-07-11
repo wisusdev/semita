@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+{{template "header" .}}
+<body>
+    {{template "navbar" .}}
+
+    <div class="container">
+        <h1>{{call .Translate "forms_title"}}</h1>
+
+        {{if ne .AlertId ""}}
+            <div class="alert alert-{{.alert_id}} alert-dismissible fade show" role="alert">
+                {{.AlertMessage}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {{end}}
+
+        <div class="row">
+            <form action="/formulario-post" method="post" enctype="multipart/form-data">
+                <div class="form-group mb-3">
+                    <label for="nombre">{{call .Translate "name"}}:</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre">
+                </div>
+                <div class="form-group mb-3">
+                    <label for="email">{{call .Translate "email"}}:</label>
+                    <input type="email" class="form-control" id="email" name="email">
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="telefono">{{call .Translate "phone"}}:</label>
+                    <input type="tel" class="form-control" id="telefono" name="telefono">
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="password">{{call .Translate "password"}}</label>
+                    <input type="password" class="form-control" id="password" name="password">
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="file">{{call .Translate "file"}}</label>
+                    <input type="file" class="form-control" id="file" name="file">
+                </div>
+
+                <input type="submit" value="{{call .Translate "send"}}" class="btn btn-primary">
+            </form>
+        </div>
+    </div>
+
+    {{template "footer" .}}
+</body>
+</html>

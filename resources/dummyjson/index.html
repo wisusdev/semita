@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+{{template "header" .}}
+<body>
+    {{template "navbar" .}}
+    <main class="container">
+        <h1>{{call .Translate "dummyjson_title"}}</h1>
+
+        {{if ne .AlertId ""}}
+            <div class="alert alert-{{.AlertId}} alert-dismissible fade show" role="alert">
+                {{.AlertMessage}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {{end}}
+
+        <p><a href="/dummyjson/users/create" class="btn btn-success">{{call .Translate "create_user"}}</a></p>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>{{call .Translate "id"}}</th>
+                        <th>{{call .Translate "name"}}</th>
+                        <th>{{call .Translate "username"}}</th>
+                        <th>{{call .Translate "email"}}</th>
+                        <th>{{call .Translate "actions"}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{range .Data}}
+                    <tr>
+                        <td>{{.ID}}</td>
+                        <td>{{.Name}}</td>
+                        <td>{{.Username}}</td>
+                        <td>{{.Email}}</td>
+                        <td>
+                            <a href="/dummyjson/users/show/{{.ID}}" class="btn btn-primary">{{call $.Translate "view"}}</a>
+                            <a href="/dummyjson/users/edit/{{.ID}}" class="btn btn-secondary">{{call $.Translate "edit"}}</a>
+                            <form action="/dummyjson/users/delete/{{.ID}}" method="POST" style="display:inline;">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <button type="submit" class="btn btn-danger">{{call $.Translate "delete"}}</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {{end}}
+                </tbody>
+            </table>
+        </div>
+    </main>
+    {{template "footer" .}}
+</body>
+</html>

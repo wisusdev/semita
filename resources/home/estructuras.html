@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+{{template "header" .}}
+<body>
+
+    {{template "navbar" .}}
+
+    <div class="container">
+        <h1>Estructuras</h1>
+        <h3>Declaración de variables</h3>
+        {{with $valor := "Mi valor"}}
+            <p>El valor es: {{$valor}}</p>
+        {{end}}
+
+        <hr>
+        <h3>Valores desde struct</h3>
+        <ul>
+            <li>Nombre: {{.Data.Nombre}}</li>
+            <li>Nombre: {{.Data.Edad}}</li>
+            <li>Nombre: {{.Data.Perfil}}</li>
+        </ul>
+
+        <hr>
+        <h3>Condicionales</h3>
+        <!--
+            Operadores lógicos en las templates de Golang
+            and && y
+            or || o
+            not ! no
+        -->
+
+        <!--
+            Operadores condicionales en las templates de Golang
+            eq == igual
+            ne != diferente
+            lt < menor
+            le <= menor o igual
+            gt > mayor
+            ge >= mayor o igual
+        -->
+        {{if ge .Data.Edad 18 }}
+            <p>Eres mayor de edad porque tienes {{.Data.Edad}}</p>
+        {{else}}
+            <p>No eres mayor de edad</p>
+        {{end}}
+
+        <hr>
+        <h3>Iteraciones</h3>
+        {{.Data.Habilidades}}
+        
+        <ul>
+            {{ range .Data.Habilidades }}
+                <li>{{.Nombre}}</li>
+            {{end}}
+        </ul>
+    </div>
+
+    {{template "footer" .}}
+</body>
+</html>

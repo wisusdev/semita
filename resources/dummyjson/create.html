@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+{{template "header" .}}
+<body>
+    {{template "navbar" .}}
+    <main class="container">
+        <h1>{{call .Translate "dummyjson_title"}}</h1>
+        <form action="/dummyjson/users/store" method="POST">
+            <div class="mb-3">
+                <label for="name" class="form-label">{{call .Translate "name"}}</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="mb-3">
+                <label for="username" class="form-label">{{call .Translate "username"}}</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">{{call .Translate "email"}}</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <button type="submit" class="btn btn-primary">{{call .Translate "create_user"}}</button>
+            <a href="/dummyjson" class="btn btn-secondary">{{call .Translate "back_to_users"}}</a>
+        </form>
+    </main>
+    {{template "footer" .}}
+</body>
+</html>
