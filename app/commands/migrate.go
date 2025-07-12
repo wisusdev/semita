@@ -8,8 +8,8 @@ import (
 	"strings"
 	"text/template"
 	"time"
+	"web_utilidades/app/core/database"
 	"web_utilidades/config"
-	"web_utilidades/database"
 	"web_utilidades/database/migrations"
 
 	"github.com/spf13/cobra"
@@ -31,6 +31,11 @@ func withMigrator(action func(migrator *database.Migrator)) {
 	migrator.Register(migrations.NewCreateOAuthTokensTable())
 	migrator.Register(migrations.NewCreateOAuthScopesTable())
 	migrator.Register(migrations.NewCreatePostsTable())
+	migrator.Register(migrations.NewCreateRolesTable())
+	migrator.Register(migrations.NewCreatePermissionsTable())
+	migrator.Register(migrations.NewCreateUserRolesTable())
+	migrator.Register(migrations.NewCreateRolePermissionsTable())
+	migrator.Register(migrations.NewCreateUserPermissionsTable())
 
 	action(migrator)
 }
