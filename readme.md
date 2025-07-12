@@ -56,7 +56,7 @@ Para ejecutar un servidor JSON que sirva como base de datos de prueba:
 
 ```bash
 npm install -g json-server
-json-server --watch ./database/json/db.json
+json-server --watch ./app/core/examples/json/db.json
 # Accede a http://localhost:3000/
 ```
 
