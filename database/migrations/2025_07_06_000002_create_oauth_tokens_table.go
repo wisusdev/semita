@@ -2,7 +2,7 @@ package migrations
 
 import (
 	"database/sql"
-	"web_utilidades/database"
+	"web_utilidades/app/core/database"
 )
 
 type CreateOAuthTokensTable struct {
