@@ -90,6 +90,12 @@ func (us *UsersSeeder) Seed() error {
 			Password: "$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi", // password
 			Role:     "editor",
 		},
+		{
+			Name:     "Luis Pérez",
+			Email:    "user00@wisus.dev",
+			Password: "$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi", // password
+			Role:     "user",
+		},
 	}
 
 	for _, user := range users {
