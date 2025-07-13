@@ -32,7 +32,7 @@ go run . db:seed
 
 ## Dependencia para ejecutar el servidor
 
-### Instalar Air
+### Instalar [Air](https://github.com/air-verse/air)
 
 ```bash
 go install github.com/cosmtrek/air@latest
