@@ -18,12 +18,15 @@ func AuthLogin(context *gin.Context) {
 	helpers.View(context, "auth/login.html", "Login", nil)
 }
 
-func AuthLoginPost(c *gin.Context) {
-	email := c.PostForm("email")
-	password := c.PostForm("password")
+func AuthLoginPost(context *gin.Context) {
+	email := context.PostForm("email")
+	password := context.PostForm("password")
 
 	if email == "" || password == "" {
-		c.String(http.StatusBadRequest, "Email and password are required")
+		utils.Logs("ERROR", "Email and password are required")
+		utils.CreateFlashNotification(context.Writer, context.Request, "warning", "Email and password are required")
+		context.Redirect(http.StatusSeeOther, "/auth/login")
+		context.Abort()
 		return
 	}
 
@@ -34,25 +37,34 @@ func AuthLoginPost(c *gin.Context) {
 
 	storedUser, err := models.GetUserByEmail(user.Email)
 	if err != nil {
-		c.String(http.StatusInternalServerError, "Error retrieving user from database")
+		utils.Logs("ERROR", fmt.Sprintf("Error retrieving user: %v", err))
+		utils.CreateFlashNotification(context.Writer, context.Request, "warning", "Invalid email or password")
+		context.Redirect(http.StatusSeeOther, "/auth/login")
+		context.Abort()
 		return
 	}
 
 	errPassword := bcrypt.CompareHashAndPassword([]byte(storedUser.Password), []byte(user.Password))
 	if errPassword != nil {
-		c.String(http.StatusUnauthorized, "Invalid email or password")
+		utils.Logs("ERROR", "Invalid password")
+		utils.CreateFlashNotification(context.Writer, context.Request, "warning", "Invalid email or password")
+		context.Redirect(http.StatusSeeOther, "/auth/login")
+		context.Abort()
 		return
 	}
 
-	sessionLoginError := utils.LoginUserSession(c.Writer, c.Request, storedUser)
+	sessionLoginError := utils.LoginUserSession(context.Writer, context.Request, storedUser)
 	if sessionLoginError != nil {
-		c.String(http.StatusInternalServerError, "Error creating user session")
+		utils.Logs("ERROR", fmt.Sprintf("Error creating user session: %v", sessionLoginError))
+		utils.CreateFlashNotification(context.Writer, context.Request, "error", "Error creating user session")
+		context.Redirect(http.StatusSeeOther, "/auth/login")
+		context.Abort()
 		return
 	}
 
-	utils.CreateFlashNotification(c.Writer, c.Request, "success", "Login successful!")
-	c.Redirect(http.StatusSeeOther, "/")
-	c.Abort()
+	utils.CreateFlashNotification(context.Writer, context.Request, "success", "Login successful!")
+	context.Redirect(http.StatusSeeOther, "/")
+	context.Abort()
 }
 
 func AuthLogout(c *gin.Context) {
