@@ -53,6 +53,7 @@ func (sm *SeederManager) GetAllSeeders() map[string]Seeder {
 func (sm *SeederManager) GetSeeder(name string) (Seeder, error) {
 	seeder, exists := sm.seeders[name]
 	if !exists {
+		utils.Logs("ERROR", fmt.Sprintf("El seeder '%s' no existe", name))
 		return nil, fmt.Errorf("seeder '%s' not found", name)
 	}
 	return seeder, nil
@@ -113,8 +114,10 @@ func (sm *SeederManager) MarkSeederAsRolledBack(name string) error {
 
 // RunSeeder ejecuta un seeder específico limpiando primero los datos
 func (sm *SeederManager) RunSeeder(name string) error {
+
 	seeder, err := sm.GetSeeder(name)
 	if err != nil {
+		utils.Logs("ERROR", fmt.Sprintf("Seeder '%s' not found: %v", name, err))
 		return err
 	}
 
@@ -124,6 +127,7 @@ func (sm *SeederManager) RunSeeder(name string) error {
 		log.Printf("Running dependency seeder: %s", dep)
 		err := sm.RunSeeder(dep)
 		if err != nil {
+			utils.Logs("ERROR", fmt.Sprintf("Error running dependency '%s': %v", dep, err))
 			return fmt.Errorf("error running dependency '%s': %v", dep, err)
 		}
 	}
@@ -131,6 +135,7 @@ func (sm *SeederManager) RunSeeder(name string) error {
 	// Ejecutar el seeder en una transacción
 	tx, err := sm.DB.Begin()
 	if err != nil {
+		utils.Logs("ERROR", fmt.Sprintf("Error starting transaction for seeder '%s': %v", name, err))
 		return fmt.Errorf("error starting transaction: %v", err)
 	}
 
@@ -148,6 +153,7 @@ func (sm *SeederManager) RunSeeder(name string) error {
 	err = seeder.Seed()
 	if err != nil {
 		tx.Rollback()
+		utils.Logs("ERROR", fmt.Sprintf("Error running seeder '%s': %v", name, err))
 		return fmt.Errorf("error running seeder '%s': %v", name, err)
 	}
 
@@ -156,6 +162,7 @@ func (sm *SeederManager) RunSeeder(name string) error {
 
 	err = tx.Commit()
 	if err != nil {
+		utils.Logs("ERROR", fmt.Sprintf("Error committing transaction for seeder '%s': %v", name, err))
 		return fmt.Errorf("error committing transaction: %v", err)
 	}
 
