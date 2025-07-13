@@ -16,7 +16,8 @@ func Commands() {
 	RootCmd.AddCommand(commands.KeyGenerateCmd)
 	RootCmd.AddCommand(commands.OauthKeysCmd)
 	RootCmd.AddCommand(commands.OauthClientCmd)
-	RootCmd.AddCommand(commands.SeedCommand)
+	RootCmd.AddCommand(commands.SeedAllCommand)
+	RootCmd.AddCommand(commands.SeedRunCommand)
 
 	// Ejecuta la CLI
 	if err := RootCmd.Execute(); err != nil {
