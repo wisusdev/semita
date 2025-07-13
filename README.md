@@ -23,3 +23,23 @@ go run . key:generate
 ```bash
 go run . migrate
 ```
+
+### Ejecutar los seeders
+
+```bash
+go run . db:seed
+```
+
+## Dependencia para ejecutar el servidor
+
+### Instalar Air
+
+```bash
+go install github.com/cosmtrek/air@latest
+```
+
+### Levantar el servidor
+
+```bash
+air
+```
