@@ -13,6 +13,7 @@ func Commands() {
 	RootCmd.AddCommand(commands.MigrateFreshCmd)
 	RootCmd.AddCommand(commands.MigrateRollbackCmd)
 	RootCmd.AddCommand(commands.MakeMigrationCmd)
+	RootCmd.AddCommand(commands.MakeMigrationFromDbCmd)
 	RootCmd.AddCommand(commands.KeyGenerateCmd)
 	RootCmd.AddCommand(commands.OauthKeysCmd)
 	RootCmd.AddCommand(commands.OauthClientCmd)
