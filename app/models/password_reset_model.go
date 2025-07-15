@@ -1,8 +1,8 @@
 package models
 
 import (
+	"semita/config"
 	"time"
-	"web_utilidades/config"
 )
 
 type PasswordReset struct {

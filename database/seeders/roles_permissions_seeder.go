@@ -2,10 +2,10 @@ package seeders
 
 import (
 	"log"
-	"web_utilidades/app/core/database"
-	"web_utilidades/app/models"
-	"web_utilidades/app/structs"
-	"web_utilidades/config"
+	"semita/app/core/database"
+	"semita/app/models"
+	"semita/app/structs"
+	"semita/config"
 )
 
 // RolesPermissionsSeeder seeder para roles y permisos

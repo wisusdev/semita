@@ -5,13 +5,13 @@ import (
 	"io"
 	"net/http"
 	"os"
+	"semita/app/helpers"
+	"semita/app/utils"
+	validaciones "semita/app/validations"
+	"semita/config"
 	"strings"
 	"text/template"
 	"time"
-	"web_utilidades/app/helpers"
-	"web_utilidades/app/utils"
-	validaciones "web_utilidades/app/validations"
-	"web_utilidades/config"
 
 	"github.com/gin-gonic/gin"
 )

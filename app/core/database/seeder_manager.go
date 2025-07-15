@@ -4,9 +4,9 @@ import (
 	"database/sql"
 	"fmt"
 	"log"
+	"semita/app/utils"
+	"semita/config"
 	"time"
-	"web_utilidades/app/utils"
-	"web_utilidades/config"
 )
 
 // Seeder interface que deben implementar todos los seeders

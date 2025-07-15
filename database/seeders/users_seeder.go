@@ -2,9 +2,10 @@ package seeders
 
 import (
 	"database/sql"
+	"errors"
 	"log"
-	"web_utilidades/app/core/database"
-	"web_utilidades/config"
+	"semita/app/core/database"
+	"semita/config"
 )
 
 // UsersSeeder seeder para usuarios de prueba
@@ -104,7 +105,7 @@ func (us *UsersSeeder) Seed() error {
 		checkQuery := `SELECT id FROM users WHERE email = ?`
 		err := us.DB.QueryRow(checkQuery, user.Email).Scan(&existingID)
 
-		if err == sql.ErrNoRows {
+		if errors.Is(sql.ErrNoRows, err) {
 			// No existe, crear nuevo usuario
 			insertQuery := `
 				INSERT INTO users (name, email, password, email_verified_at, created_at, updated_at) 

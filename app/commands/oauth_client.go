@@ -5,7 +5,7 @@ import (
 	"encoding/hex"
 	"fmt"
 	"os"
-	"web_utilidades/app/models"
+	"semita/app/models"
 
 	"github.com/spf13/cobra"
 )

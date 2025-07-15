@@ -3,7 +3,7 @@ package auth
 import (
 	"github.com/gin-gonic/gin"
 	"net/http"
-	"web_utilidades/app/models"
+	"semita/app/models"
 )
 
 type TokenResponse struct {

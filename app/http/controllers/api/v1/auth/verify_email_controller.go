@@ -5,9 +5,9 @@ import (
 	"encoding/hex"
 	"fmt"
 	"net/http"
+	"semita/app/models"
+	"semita/app/notifications"
 	"strconv"
-	"web_utilidades/app/models"
-	"web_utilidades/app/notifications"
 
 	"github.com/gin-gonic/gin"
 )

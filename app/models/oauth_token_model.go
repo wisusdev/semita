@@ -3,10 +3,10 @@ package models
 import (
 	"database/sql"
 	"errors"
+	"semita/app/utils"
+	"semita/config"
 	"strings"
 	"time"
-	"web_utilidades/app/utils"
-	"web_utilidades/config"
 )
 
 type OAuthToken struct {

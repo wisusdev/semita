@@ -2,7 +2,7 @@ package bootstrap
 
 import (
 	"os"
-	"web_utilidades/app/commands"
+	"semita/app/commands"
 
 	"github.com/spf13/cobra"
 )
@@ -27,8 +27,8 @@ func Commands() {
 }
 
 var RootCmd = &cobra.Command{
-	Use:   "web_utilidades",
-	Short: "Comandos disponibles para el proyecto",
+	Use:   "semita",
+	Short: "Semita CLI",
 	// Si no hay subcomando, muestra la ayuda
 	Run: func(cmd *cobra.Command, args []string) {
 		// Si no hay subcomando, arrancar el servidor

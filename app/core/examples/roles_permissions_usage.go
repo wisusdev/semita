@@ -3,9 +3,9 @@ package main
 import (
 	"fmt"
 	"log"
-	"web_utilidades/app/models"
-	"web_utilidades/app/structs"
-	"web_utilidades/config"
+	"semita/app/models"
+	"semita/app/structs"
+	"semita/config"
 )
 
 // Este archivo muestra ejemplos de uso del sistema de roles y permisos

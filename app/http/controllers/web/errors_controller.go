@@ -2,8 +2,8 @@ package web
 
 import (
 	"net/http"
+	"semita/config"
 	"text/template"
-	"web_utilidades/config"
 
 	"github.com/gin-gonic/gin"
 )

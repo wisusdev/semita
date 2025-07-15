@@ -2,9 +2,10 @@ package seeders
 
 import (
 	"database/sql"
+	"errors"
 	"log"
-	"web_utilidades/app/core/database"
-	"web_utilidades/config"
+	"semita/app/core/database"
+	"semita/config"
 )
 
 // CategoriesSeeder seeder para categorías
@@ -89,7 +90,7 @@ func (cs *CategoriesSeeder) Seed() error {
 		checkQuery := `SELECT id FROM categories WHERE slug = ?`
 		err := cs.DB.QueryRow(checkQuery, category.Slug).Scan(&existingID)
 
-		if err == sql.ErrNoRows {
+		if errors.Is(sql.ErrNoRows, err) {
 			// No existe, crear nueva categoría
 			insertQuery := `
 				INSERT INTO categories (name, description, slug, created_at, updated_at) 

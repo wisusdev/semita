@@ -1,9 +1,9 @@
 package models
 
 import (
+	"semita/app/structs"
+	"semita/config"
 	"time"
-	"web_utilidades/app/structs"
-	"web_utilidades/config"
 )
 
 var userTable = "users"

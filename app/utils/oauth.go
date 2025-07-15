@@ -47,7 +47,7 @@ func GenerateJWTToken(userID int64, clientID string, tokenID string, scopes []st
 
 	claims := OAuthTokenClaims{
 		RegisteredClaims: jwt.RegisteredClaims{
-			Issuer:    "web_utilidades_api",
+			Issuer:    "semita_api",
 			Subject:   fmt.Sprintf("%d", userID),
 			Audience:  jwt.ClaimStrings{clientID},
 			ExpiresAt: jwt.NewNumericDate(expirationTime),

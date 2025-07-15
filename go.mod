@@ -1,4 +1,4 @@
-module web_utilidades
+module semita
 
 go 1.24.3
 

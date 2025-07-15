@@ -4,8 +4,8 @@ import (
 	"crypto/rand"
 	"encoding/hex"
 	"errors"
+	"semita/config"
 	"strings"
-	"web_utilidades/config"
 )
 
 type OAuthClient struct {

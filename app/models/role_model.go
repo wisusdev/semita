@@ -3,9 +3,9 @@ package models
 import (
 	"database/sql"
 	"fmt"
+	"semita/app/structs"
+	"semita/config"
 	"strings"
-	"web_utilidades/app/structs"
-	"web_utilidades/config"
 )
 
 var rolesTable = "roles"

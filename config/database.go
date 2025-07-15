@@ -4,7 +4,7 @@ import (
 	"database/sql"
 	"os"
 	"path/filepath"
-	"web_utilidades/app/utils"
+	"semita/app/utils"
 
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/joho/godotenv"

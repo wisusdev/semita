@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"net/http"
 	"os"
+	"semita/app/helpers"
+	"semita/config"
 	"text/template"
-	"web_utilidades/app/helpers"
-	"web_utilidades/config"
 
 	"github.com/gin-gonic/gin"
 	"github.com/signintech/gopdf"

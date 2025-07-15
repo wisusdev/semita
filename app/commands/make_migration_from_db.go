@@ -6,10 +6,10 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"semita/config"
 	"strings"
 	"text/template"
 	"time"
-	"web_utilidades/config"
 
 	"github.com/spf13/cobra"
 )
@@ -400,7 +400,7 @@ func generateMigrationContent(tableInfo *TableInfo, timestamp string) (string, e
 
 import (
 	"database/sql"
-	"web_utilidades/app/core/database"
+	"semita/app/core/database"
 )
 
 type Create{{.StructName}}Table struct {

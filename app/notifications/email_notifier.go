@@ -2,7 +2,7 @@ package notifications
 
 import (
 	"fmt"
-	"web_utilidades/app/utils"
+	"semita/app/utils"
 )
 
 var DefaultNotifier utils.Notifier = utils.EmailNotifier{}

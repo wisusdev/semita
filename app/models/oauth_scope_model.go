@@ -1,7 +1,7 @@
 package models
 
 import (
-	"web_utilidades/config"
+	"semita/config"
 )
 
 type OAuthScope struct {

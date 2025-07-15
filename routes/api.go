@@ -1,14 +1,19 @@
 package routes
 
 import (
-	"web_utilidades/app/http/controllers/api/v1/auth"
-	"web_utilidades/app/http/controllers/api/v1/base"
-	"web_utilidades/app/http/middleware"
+	"semita/app/http/controllers/api/v1/auth"
+	"semita/app/http/controllers/api/v1/base"
+	"semita/app/http/middleware"
 
 	"github.com/gin-gonic/gin"
 )
 
 func Api(router *gin.RouterGroup) {
+	// Inicializar controladores
+	roleController := &base.RoleController{}
+	permissionController := &base.PermissionController{}
+	userPermissionController := &base.UserPermissionController{}
+
 	// Auth routes
 	router.POST("/auth/login", auth.Login)
 	router.POST("/auth/register", auth.Register)
@@ -18,11 +23,6 @@ func Api(router *gin.RouterGroup) {
 	router.POST("/auth/email/resend", middleware.AuthMiddleware(), auth.ResendEmailVerify)
 	router.GET("/auth/email/verify/:id/:hash", auth.VerifyEmail)
 	router.POST("/auth/refresh-token", middleware.AuthMiddleware(), auth.RefreshToken)
-
-	// Inicializar controladores
-	roleController := &base.RoleController{}
-	permissionController := &base.PermissionController{}
-	userPermissionController := &base.UserPermissionController{}
 
 	// Rutas protegidas con autenticación
 	protected := router.Group("/")

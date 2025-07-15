@@ -5,12 +5,12 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"semita/app/core/database"
+	"semita/config"
+	"semita/database/migrations"
 	"strings"
 	"text/template"
 	"time"
-	"web_utilidades/app/core/database"
-	"web_utilidades/config"
-	"web_utilidades/database/migrations"
 
 	"github.com/spf13/cobra"
 )
@@ -30,7 +30,6 @@ func withMigrator(action func(migrator *database.Migrator)) {
 	migrator.Register(migrations.NewCreateOAuthClientsTable())
 	migrator.Register(migrations.NewCreateOAuthTokensTable())
 	migrator.Register(migrations.NewCreateOAuthScopesTable())
-	migrator.Register(migrations.NewCreatePostsTable())
 	migrator.Register(migrations.NewCreateRolesTable())
 	migrator.Register(migrations.NewCreatePermissionsTable())
 	migrator.Register(migrations.NewCreateUserRolesTable())
@@ -103,7 +102,7 @@ func createMigrationFile(name string) {
 
 import (
 	"database/sql"
-	"web_utilidades/database"
+	"semita/database"
 )
 
 type {{.StructName}} struct {

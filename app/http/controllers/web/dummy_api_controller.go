@@ -4,10 +4,10 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+	"semita/app/helpers"
+	"semita/app/structs"
+	"semita/config"
 	"text/template"
-	"web_utilidades/app/helpers"
-	"web_utilidades/app/structs"
-	"web_utilidades/config"
 
 	"github.com/gin-gonic/gin"
 )

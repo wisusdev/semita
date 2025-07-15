@@ -4,7 +4,7 @@ import (
 	"crypto/rand"
 	"encoding/base64"
 	"fmt"
-	"web_utilidades/app/utils"
+	"semita/app/utils"
 
 	"github.com/spf13/cobra"
 )

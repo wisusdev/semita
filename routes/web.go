@@ -1,8 +1,8 @@
 package routes
 
 import (
-	"web_utilidades/app/http/controllers/web"
-	"web_utilidades/app/http/middleware"
+	"semita/app/http/controllers/web"
+	"semita/app/http/middleware"
 
 	"github.com/gin-gonic/gin"
 )

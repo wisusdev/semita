@@ -1,8 +1,8 @@
 package main
 
 import (
-	"web_utilidades/app/utils"
-	"web_utilidades/bootstrap"
+	"semita/app/utils"
+	"semita/bootstrap"
 )
 
 func main() {

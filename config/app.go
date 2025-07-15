@@ -1,6 +1,6 @@
 package config
 
-import "web_utilidades/app/utils"
+import "semita/app/utils"
 
 var MainLayoutFilePath string = "resources/layouts/app.html"
 var appName string = utils.GetEnv("APP_NAME")

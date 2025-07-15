@@ -2,8 +2,8 @@ package middleware
 
 import (
 	"net/http"
-	"web_utilidades/app/models"
-	"web_utilidades/app/utils"
+	"semita/app/models"
+	"semita/app/utils"
 
 	"github.com/gin-gonic/gin"
 )

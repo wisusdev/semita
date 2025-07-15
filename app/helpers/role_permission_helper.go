@@ -2,8 +2,8 @@ package helpers
 
 import (
 	"net/http"
-	"web_utilidades/app/models"
-	"web_utilidades/app/utils"
+	"semita/app/models"
+	"semita/app/utils"
 )
 
 // RolePermissionHelper proporciona métodos auxiliares para verificar roles y permisos

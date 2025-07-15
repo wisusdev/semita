@@ -64,7 +64,7 @@ package migrations
 
 import (
 	"database/sql"
-	"web_utilidades/app/core/database"
+	"semita/app/core/database"
 )
 
 type CreateUsersTable struct {

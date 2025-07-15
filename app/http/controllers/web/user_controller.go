@@ -3,13 +3,13 @@ package web
 import (
 	"fmt"
 	"net/http"
+	"semita/app/helpers"
+	"semita/app/models"
+	"semita/app/structs"
+	"semita/app/utils"
+	"semita/config"
 	"strconv"
 	"text/template"
-	"web_utilidades/app/helpers"
-	"web_utilidades/app/models"
-	"web_utilidades/app/structs"
-	"web_utilidades/app/utils"
-	"web_utilidades/config"
 
 	"github.com/gin-gonic/gin"
 )

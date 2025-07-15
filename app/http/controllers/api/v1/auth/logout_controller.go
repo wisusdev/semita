@@ -3,7 +3,7 @@ package auth
 import (
 	"fmt"
 	"net/http"
-	"web_utilidades/app/models"
+	"semita/app/models"
 
 	"github.com/gin-gonic/gin"
 )

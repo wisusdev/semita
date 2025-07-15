@@ -2,11 +2,11 @@ package auth
 
 import (
 	"net/http"
-	"web_utilidades/app/http/requests"
-	"web_utilidades/app/http/resources"
-	"web_utilidades/app/models"
-	"web_utilidades/app/structs"
-	"web_utilidades/app/utils"
+	"semita/app/http/requests"
+	"semita/app/http/resources"
+	"semita/app/models"
+	"semita/app/structs"
+	"semita/app/utils"
 
 	"github.com/gin-gonic/gin"
 	"golang.org/x/crypto/bcrypt"

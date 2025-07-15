@@ -2,11 +2,11 @@ package web
 
 import (
 	"net/http"
+	"semita/app/helpers"
+	"semita/app/models"
+	"semita/app/structs"
+	"semita/app/utils"
 	"strconv"
-	"web_utilidades/app/helpers"
-	"web_utilidades/app/models"
-	"web_utilidades/app/structs"
-	"web_utilidades/app/utils"
 
 	"github.com/gin-gonic/gin"
 )

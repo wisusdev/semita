@@ -2,8 +2,8 @@ package helpers
 
 import (
 	"net/http"
-	"web_utilidades/app/structs"
-	"web_utilidades/app/utils"
+	"semita/app/structs"
+	"semita/app/utils"
 )
 
 func AuthSessionService(response http.ResponseWriter, request *http.Request, title string, data interface{}) structs.AuthSessionStruct {

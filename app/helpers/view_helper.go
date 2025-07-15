@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"net/http"
 	"path/filepath"
+	"semita/app/utils"
+	"semita/config"
 	"text/template"
-	"web_utilidades/app/utils"
-	"web_utilidades/config"
 
 	"github.com/gin-gonic/gin"
 )

@@ -3,9 +3,9 @@ package commands
 import (
 	"fmt"
 	"log"
-	"web_utilidades/app/core/database"
-	"web_utilidades/app/utils"
-	"web_utilidades/database/seeders"
+	"semita/app/core/database"
+	"semita/app/utils"
+	"semita/database/seeders"
 
 	"github.com/spf13/cobra"
 )
@@ -39,7 +39,6 @@ func createSeederManager() *database.SeederManager {
 	manager.RegisterSeeder(seeders.NewRolesPermissionsSeeder())
 	manager.RegisterSeeder(seeders.NewCategoriesSeeder())
 	manager.RegisterSeeder(seeders.NewUsersSeeder())
-	manager.RegisterSeeder(seeders.NewPostsSeeder())
 
 	return manager
 }

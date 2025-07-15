@@ -2,8 +2,8 @@ package utils
 
 import (
 	"net/http"
+	"semita/app/structs"
 	"sync"
-	"web_utilidades/app/structs"
 
 	"github.com/gorilla/sessions"
 )

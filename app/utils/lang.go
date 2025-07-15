@@ -2,6 +2,7 @@ package utils
 
 import (
 	"encoding/json"
+	"fmt"
 	"os"
 	"strings"
 )
@@ -9,33 +10,41 @@ import (
 var translations map[string]map[string]string
 var defaultLang = "es"
 
-func LoadTranslations() error {
+func LoadTranslations() {
 	translations = make(map[string]map[string]string)
 
-	files := []string{
-		"lang/es.json",
-		"lang/en.json",
+	var langDir = "lang"
+
+	var files []string
+	var entries, err = os.ReadDir(langDir)
+	if err != nil {
+		Logs("ERROR", fmt.Sprintf("Failed to read lang directory: %v", err))
+		return
+	} else {
+		for _, entry := range entries {
+			if !entry.IsDir() && strings.HasSuffix(entry.Name(), ".json") {
+				files = append(files, langDir+"/"+entry.Name())
+			}
+		}
 	}
 
 	for _, file := range files {
-		lang := strings.TrimSuffix(strings.TrimPrefix(file, "lang/"), ".json")
+		lang := strings.TrimSuffix(strings.TrimPrefix(file, langDir+"/"), ".json")
 
 		data, err := os.ReadFile(file)
 
 		if err != nil {
-			return err
+			Logs("ERROR", fmt.Sprintf("Failed to read translation file: %s (%v)", file, err))
 		}
 
 		var m map[string]string
 
 		if err := json.Unmarshal(data, &m); err != nil {
-			return err
+			Logs("ERROR", fmt.Sprintf("Failed to parse translation file: %s (%v)", file, err))
 		}
 
 		translations[lang] = m
 	}
-
-	return nil
 }
 
 func Translate(key, lang string) string {
@@ -52,8 +61,4 @@ func Translate(key, lang string) string {
 	}
 
 	return key
-}
-
-func SetDefaultLang(lang string) {
-	defaultLang = lang
 }

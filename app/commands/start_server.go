@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"semita/app/http/controllers/web"
+	"semita/app/utils"
+	"semita/routes"
 	"time"
-	"web_utilidades/app/http/controllers/web"
-	"web_utilidades/app/utils"
-	"web_utilidades/routes"
 )
 
 func StartServer() {
